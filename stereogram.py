@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 def spectrum(n : int):
     hsv = [(h, 1, 1) for h in np.linspace(0, 240/360, n)]
     rgb = [colorsys.hsv_to_rgb(*tup) for tup in hsv]
-    defloat = lambda x: tuple((int(255 * i) for i in x))
+    defloat = lambda x: tuple((int('''255 *''' i) for i in x))
     return [defloat(x) for x in rgb]
   
 n = 100
