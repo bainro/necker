@@ -51,7 +51,7 @@ for i in range(n):
 noise_tmp = np.copy(noise)
 noise[noise > n_avg] = 666
 noise[noise_tmp < n_avg] = n_min
-
+ 
 for i in range(n):
   for j in range(n):
     if noise[i, j] != 666:
