@@ -30,11 +30,13 @@ n4 = np.clip(np.where(img2 <= 1, (img2*(1 + noise*0.4)), (1-img2+1)*(1 + noise*0
 noise2 = (noise - noise.min())/(noise.max()-noise.min())
 plt.figure(figsize=(20,20))
 plt.imshow(noise[:200,:200,:])
+'''
 plt.show()
 plt.imshow(np.vstack((np.hstack((img, noise)),
                       np.hstack((noisy, noisy2)),
                       np.hstack((noisy2mul, noisy4mul)),
                       np.hstack((n2, n4)))))
+'''
 plt.show()
 plt.hist(noise.ravel(), bins=100)
 plt.show()
