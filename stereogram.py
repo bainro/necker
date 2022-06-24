@@ -46,7 +46,7 @@ for i in range(n):
         bg_og_2[i, j, :] = 0
     if i > side_len and j > side_len:
       if i < side_len*2 and j < side_len*2:
-        bg_og[i, j, :] = 255
+        bg_og[i, j, :] = [255,0,128]
 
 noise_tmp = np.copy(noise)
 noise[noise > n_avg] = 666
@@ -59,7 +59,7 @@ for i in range(n):
         bg_2[i, j, :] = 0
     if i > side_len and j > side_len:
       if i < side_len*2 and j < side_len*2:
-        bg[i, j, :] = 255
+        bg[i, j, :] = [255,0,128]
 
 #plt.imshow(noise_og, cmap='gray', vmin=n_min, vmax=n_max)
 spacer = np.ones((np.shape(noise)[0], 5, 3))
