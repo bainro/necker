@@ -15,11 +15,10 @@ n = 100
 # img_path = os.path.join(os.getcwd(), "dust.png")
 # img = cv2.imread(img_path)[...,::-1]/255.0
 # noise =  np.random.normal(loc=0, scale=1, size=img.shape)
-noise =  np.random.normal(loc=0, scale=1, size=(n,n,1))
+noise =  np.random.normal(loc=0, scale=1, size=(n,n))
 # noisy_img = np.clip((img + noise*0.2),0,1)
 
 plt.figure(figsize=(20,20))
-noise = noise[:,:,0]
 n_min = noise.min()
 n_max = noise.max()
 n_avg = (n_max + n_min) / 2
@@ -40,20 +39,31 @@ for i in range(side_len):
 color_grad = np.array(spectrum(n))
 color_grad = color_grad.reshape((1, n, 3))
 color_grad = np.tile(color_grad, (n, 1, 1))
-print(np.shape(color_grad));exit()
+color_og = np.copy(color_grad)
   
 noise_tmp = np.copy(noise_og)
-noise_og[noise_og > n_avg] = n_max
+noise_og[noise_og > n_avg] = 666
 noise_og[noise_tmp < n_avg] = n_min  
 
+for i in range(n):
+  for j in range(n):
+    if noise_og[i, j] != 666:
+        color_og[i, j, :] = 0
+
 noise_tmp = np.copy(noise)
-noise[noise > n_avg] = n_max
+noise[noise > n_avg] = 666
 noise[noise_tmp < n_avg] = n_min
+
+for i in range(n):
+  for j in range(n):
+    if noise[i, j] != 666:
+        color_grad[i, j, :] = 0
 
 #plt.imshow(noise_og, cmap='gray', vmin=n_min, vmax=n_max)
 spacer = np.ones((np.shape(noise)[0], 30))
 spacer[:,:] = n_min
-plt.imshow(np.hstack((noise_og, spacer, noise)), cmap='gray', vmin=n_min, vmax=n_max)
+plt.imshow(np.hstack((color_og, spacer, color_grad)))
+# plt.imshow(np.hstack((noise_og, spacer, noise)), cmap='gray', vmin=n_min, vmax=n_max)
 # plt.imshow(np.hstack((noise_og, noise)), cmap='gray', vmin=n_min, vmax=n_max)
 plt.show()
 #plt.imshow(noise, cmap='gray', vmin=n_min, vmax=n_max)
