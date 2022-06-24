@@ -57,7 +57,7 @@ for i in range(n):
         bg[i, j, :] = 255
 
 #plt.imshow(noise_og, cmap='gray', vmin=n_min, vmax=n_max)
-spacer = np.ones((np.shape(noise)[0], 15, 3))
+spacer = np.ones((np.shape(noise)[0], 5, 3))
 spacer[:,:] = n_min
 plt.imshow(np.hstack((bg_og, spacer, bg)))
 # plt.imshow(np.hstack((noise_og, spacer, noise)), cmap='gray', vmin=n_min, vmax=n_max)
