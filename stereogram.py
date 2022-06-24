@@ -36,7 +36,7 @@ noise_tmp = np.copy(noise_og)
 noise_og[noise_og > n_avg] = 666
 noise_og[noise_tmp < n_avg] = n_min  
 
-bg_og_2 = np.copy(bg_og_2)
+bg_og_2 = np.copy(bg_og)
 bg_2 = np.copy(bg)
 
 for i in range(n):
