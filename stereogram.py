@@ -12,7 +12,7 @@ def spectrum(n : int):
     return [defloat(x) for x in rgb]
   
 n = 100
-# img_path = os.path.join(os.getcwd(), "dust.png")
+bg = os.path.join(os.getcwd(), "bg.png")
 # img = cv2.imread(img_path)[...,::-1]/255.0
 # noise =  np.random.normal(loc=0, scale=1, size=img.shape)
 noise =  np.random.normal(loc=0, scale=1, size=(n,n))
@@ -36,10 +36,7 @@ for i in range(side_len):
   #noise[side_len + i, side_len + side_len - 2] = np.random.normal(loc=0, scale=1, size=(1))
   #noise[side_len + i, side_len + side_len - 3] = np.random.normal(loc=0, scale=1, size=(1))  
 
-color_grad = np.array(spectrum(n))
-color_grad = color_grad.reshape((1, n, 3))
-color_grad = np.tile(color_grad, (n, 1, 1))
-color_og = np.copy(color_grad)
+bg_og = np.copy(bg)
   
 noise_tmp = np.copy(noise_og)
 noise_og[noise_og > n_avg] = 666
@@ -48,7 +45,7 @@ noise_og[noise_tmp < n_avg] = n_min
 for i in range(n):
   for j in range(n):
     if noise_og[i, j] != 666:
-        color_og[i, j, :] = 0
+        bg_og[i, j, :] = 0
 
 noise_tmp = np.copy(noise)
 noise[noise > n_avg] = 666
@@ -57,12 +54,12 @@ noise[noise_tmp < n_avg] = n_min
 for i in range(n):
   for j in range(n):
     if noise[i, j] != 666:
-        color_grad[i, j, :] = 0
+        bg_grad[i, j, :] = 0
 
 #plt.imshow(noise_og, cmap='gray', vmin=n_min, vmax=n_max)
 spacer = np.ones((np.shape(noise)[0], 30, 3))
 spacer[:,:] = n_min
-plt.imshow(np.hstack((color_og, spacer, color_grad)))
+plt.imshow(np.hstack((bg_og, spacer, bg)))
 # plt.imshow(np.hstack((noise_og, spacer, noise)), cmap='gray', vmin=n_min, vmax=n_max)
 # plt.imshow(np.hstack((noise_og, noise)), cmap='gray', vmin=n_min, vmax=n_max)
 plt.show()
