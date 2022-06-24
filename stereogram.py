@@ -29,7 +29,7 @@ n4 = np.clip(np.where(img2 <= 1, (img2*(1 + noise*0.4)), (1-img2+1)*(1 + noise*0
 # norm noise for viz only
 noise2 = (noise - noise.min())/(noise.max()-noise.min())
 plt.figure(figsize=(20,20))
-noise = noise[:200,:200,0]
+noise = noise[:100,:100,0]
 n_min = noise.min()
 n_max = noise.max()
 n_avg = (n_max + n_min) / 2
