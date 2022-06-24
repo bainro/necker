@@ -1,13 +1,21 @@
 # playing with the necker cube illusion
 import os
+import colorsys
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 
+def spectrum(n : int):
+    hsv = [(h, 1, 1) for h in np.linspace(0, 240/360, n)]
+    rgb = [colorsys.hsv_to_rgb(*tup) for tup in hsv]
+    defloat = lambda x: tuple((int(255 * i) for i in x))
+    return [defloat(x) for x in rgb]
+  
+n = 100
 # img_path = os.path.join(os.getcwd(), "dust.png")
 # img = cv2.imread(img_path)[...,::-1]/255.0
 # noise =  np.random.normal(loc=0, scale=1, size=img.shape)
-noise =  np.random.normal(loc=0, scale=1, size=(100,100,1))
+noise =  np.random.normal(loc=0, scale=1, size=(n,n,1))
 # noisy_img = np.clip((img + noise*0.2),0,1)
 
 plt.figure(figsize=(20,20))
@@ -27,8 +35,13 @@ for i in range(side_len):
     noise[side_len + i, side_len + j - 1] = noise[side_len + i, side_len + j]
   noise[side_len + i, side_len + side_len - 1] = np.random.normal(loc=0, scale=1, size=(1))
   #noise[side_len + i, side_len + side_len - 2] = np.random.normal(loc=0, scale=1, size=(1))
-  #noise[side_len + i, side_len + side_len - 3] = np.random.normal(loc=0, scale=1, size=(1))
+  #noise[side_len + i, side_len + side_len - 3] = np.random.normal(loc=0, scale=1, size=(1))  
 
+color_grad = np.array(spectrum(n))
+color_grad = color_grad.reshape((1, n, 3))
+color_grad = np.tile(color_grad, (n, 1, 1))
+print(np.shape(color_grad));exit()
+  
 noise_tmp = np.copy(noise_og)
 noise_og[noise_og > n_avg] = n_max
 noise_og[noise_tmp < n_avg] = n_min  
