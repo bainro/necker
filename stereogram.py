@@ -40,6 +40,9 @@ for i in range(n):
   for j in range(n):
     if noise_og[i, j] != 666:
         bg_og[i, j, :] = 0
+    elif i > side_len && j > side_len:
+      if i < side_len*2 && j < side_len*2:
+        bg_og[i, j, :] = 255
 
 noise_tmp = np.copy(noise)
 noise[noise > n_avg] = 666
