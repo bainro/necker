@@ -30,7 +30,15 @@ n4 = np.clip(np.where(img2 <= 1, (img2*(1 + noise*0.4)), (1-img2+1)*(1 + noise*0
 noise2 = (noise - noise.min())/(noise.max()-noise.min())
 plt.figure(figsize=(20,20))
 noise = noise[:200,:200,0]
-plt.imshow(noise, cmap='gray', vmin=noise.min(), vmax=noise.max())
+n_min = noise.min()
+n_max = noise.max()
+n_avg = (n_max + n_min) / 2
+
+noise_og = np.copy(noise)
+noise[noise > n_avg] = n_max
+noise[noise_og < n_avg] = n_min
+
+plt.imshow(noise, cmap='gray', vmin=n_min, vmax=n_max)
 '''
 plt.show()
 plt.imshow(np.vstack((np.hstack((img, noise)),
