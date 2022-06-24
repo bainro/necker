@@ -24,10 +24,10 @@ noise_og = np.copy(noise)
 for i in range(side_len):
   for j in range(side_len):
     if j > 5: continue
-    noise[side_len + i - 3, side_len + j] = 40 # noise[side_len + i, side_len + j]
-  noise[side_len + i - 2, side_len + side_len] = -40 #np.random.normal(loc=0, scale=1, size=(1))
-  noise[side_len + i - 1, side_len + side_len] = -40 #np.random.normal(loc=0, scale=1, size=(1))
-  noise[side_len + i - 0, side_len + side_len] = -40 #np.random.normal(loc=0, scale=1, size=(1))
+    noise[side_len + i, side_len + j - 3] = 40 # noise[side_len + i, side_len + j]
+  noise[side_len + i, side_len + side_len] = -40 #np.random.normal(loc=0, scale=1, size=(1))
+  noise[side_len + i, side_len + side_len - 1] = -40 #np.random.normal(loc=0, scale=1, size=(1))
+  noise[side_len + i, side_len + side_len - 2] = -40 #np.random.normal(loc=0, scale=1, size=(1))
 
 noise_tmp = np.copy(noise_og)
 noise_og[noise_og > n_avg] = n_max
