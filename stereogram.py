@@ -31,5 +31,3 @@ noise[noise_og < n_avg] = n_min
 
 plt.imshow(noise, cmap='gray', vmin=n_min, vmax=n_max)
 plt.show()
-plt.hist(noise.ravel(), bins=100)
-plt.show()
