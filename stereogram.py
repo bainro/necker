@@ -16,18 +16,24 @@ n_min = noise.min()
 n_max = noise.max()
 n_avg = (n_max + n_min) / 2
 
-side_len = np.shape(noise)[0] // 3
+side_len = np.shape(noise)[0] // 2.4
 
-left_offset = 1
-
-for i in range(side_len):
-  for j in range(side_len):
-    noise[side_len + i - 1, side_len + j] = 0 # noise[side_len + i, side_len + j]
-  noise[side_len + i - 1, side_len + side_len] = np.random.normal(loc=0, scale=1, size=(1))
+# left_offset = 1
 
 noise_og = np.copy(noise)
-noise[noise > n_avg] = n_max
-noise[noise_og < n_avg] = n_min
+for i in range(side_len):
+  for j in range(side_len):
+    noise[side_len + i - 1, side_len + j] = noise[side_len + i, side_len + j]
+  noise[side_len + i - 1, side_len + side_len] = np.random.normal(loc=0, scale=1, size=(1))
 
-plt.imshow(noise, cmap='gray', vmin=n_min, vmax=n_max)
+noise_tmp = np.copy(noise_og)
+noise_og[noise_og > n_avg] = n_max
+noise_og[noise_tmp < n_avg] = n_min  
+
+noise_tmp = np.copy(noise)
+noise[noise > n_avg] = n_max
+noise[noise_tmp < n_avg] = n_min
+
+# plt.imshow(noise, cmap='gray', vmin=n_min, vmax=n_max)
+plt.imshow(np.vstack((np.hstack((noise_og, noise)))
 plt.show()
