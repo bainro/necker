@@ -16,7 +16,7 @@ n_min = noise.min()
 n_max = noise.max()
 n_avg = (n_max + n_min) / 2
 
-side_len = int(np.shape(noise)[0] / 2.4)
+side_len = np.shape(noise)[0] // 3
 
 # left_offset = 1
 
