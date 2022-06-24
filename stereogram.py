@@ -37,7 +37,8 @@ noise[noise_tmp < n_avg] = n_min
 #plt.imshow(noise_og, cmap='gray', vmin=n_min, vmax=n_max)
 spacer = np.ones((np.shape(noise)[0], 50))
 spacer[:,:] = n_min
-plt.imshow(np.hstack((noise_og, spacer, noise)), cmap='gray', vmin=n_min, vmax=n_max)
+# plt.imshow(np.hstack((noise_og, spacer, noise)), cmap='gray', vmin=n_min, vmax=n_max)
+plt.imshow(np.hstack((noise_og, noise)), cmap='gray', vmin=n_min, vmax=n_max)
 plt.show()
 #plt.imshow(noise, cmap='gray', vmin=n_min, vmax=n_max)
 #plt.show()
