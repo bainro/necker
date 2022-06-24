@@ -60,7 +60,7 @@ for i in range(n):
         color_grad[i, j, :] = 0
 
 #plt.imshow(noise_og, cmap='gray', vmin=n_min, vmax=n_max)
-spacer = np.ones((np.shape(noise)[0], 30))
+spacer = np.ones((np.shape(noise)[0], 30, 3))
 spacer[:,:] = n_min
 plt.imshow(np.hstack((color_og, spacer, color_grad)))
 # plt.imshow(np.hstack((noise_og, spacer, noise)), cmap='gray', vmin=n_min, vmax=n_max)
