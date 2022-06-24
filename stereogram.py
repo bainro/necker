@@ -23,8 +23,10 @@ side_len = int(np.shape(noise)[0] / 2.4)
 noise_og = np.copy(noise)
 for i in range(side_len):
   for j in range(side_len):
-    noise[side_len + i - 1, side_len + j] = noise[side_len + i, side_len + j]
+    noise[side_len + i - 3, side_len + j] = noise[side_len + i, side_len + j]
   noise[side_len + i - 1, side_len + side_len] = np.random.normal(loc=0, scale=1, size=(1))
+  noise[side_len + i - 2, side_len + side_len] = np.random.normal(loc=0, scale=1, size=(1))
+  noise[side_len + i - 3, side_len + side_len] = np.random.normal(loc=0, scale=1, size=(1))
 
 noise_tmp = np.copy(noise_og)
 noise_og[noise_og > n_avg] = n_max
