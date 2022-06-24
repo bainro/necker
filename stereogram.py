@@ -8,9 +8,7 @@ import matplotlib.pyplot as plt
 n = 100
 img_path = os.path.join(os.getcwd(), "bg.png")
 bg = cv2.imread(img_path)[...,::-1]/255.0
-# noise =  np.random.normal(loc=0, scale=1, size=img.shape)
 noise =  np.random.normal(loc=0, scale=1, size=(n,n))
-# noisy_img = np.clip((img + noise*0.2),0,1)
 
 plt.figure(figsize=(20,20))
 n_min = noise.min()
@@ -19,12 +17,10 @@ n_avg = (n_max + n_min) / 2
 
 side_len = np.shape(noise)[0] // 3
 
-# left_offset = 1
-
 noise_og = np.copy(noise)
 for i in range(side_len):
   for j in range(side_len):
-    # noise[height, width]
+    # noise[height, width] ie [row, col]
     noise[side_len + i, side_len + j - 1] = noise[side_len + i, side_len + j]
   noise[side_len + i, side_len + side_len - 1] = np.random.normal(loc=0, scale=1, size=(1))
   #noise[side_len + i, side_len + side_len - 2] = np.random.normal(loc=0, scale=1, size=(1))
@@ -39,6 +35,7 @@ noise_og[noise_tmp < n_avg] = n_min
 bg_og_2 = np.copy(bg_og)
 bg_2 = np.copy(bg)
 
+# left images
 for i in range(n):
   for j in range(n):
     if i > side_len and j > side_len:
@@ -51,11 +48,12 @@ noise_tmp = np.copy(noise)
 noise[noise > n_avg] = 666
 noise[noise_tmp < n_avg] = n_min
  
+# right images
 for i in range(n):
   for j in range(n):
     if i > side_len and j > side_len:
       if i < side_len*2 and j < side_len*2:
-        bg[i, j, :] = [255,0,128]
+        bg[i, j-3, :] = [255,0,128]
         if noise[i, j] != 666:
           bg_og_2[i, j, :] = 0
 
