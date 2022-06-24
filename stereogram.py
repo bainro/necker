@@ -42,7 +42,7 @@ bg_2 = np.copy(bg)
 for i in range(n):
   for j in range(n):
     if noise_og[i, j] != 666:
-        bg_og[i, j, :] = 0
+        #bg_og[i, j, :] = 0
         bg_og_2[i, j, :] = 0
     elif i > side_len and j > side_len:
       if i < side_len*2 and j < side_len*2:
@@ -55,7 +55,7 @@ noise[noise_tmp < n_avg] = n_min
 for i in range(n):
   for j in range(n):
     if noise[i, j] != 666:
-        bg[i, j, :] = 0
+        #bg[i, j, :] = 0
         bg_2[i, j, :] = 0
     elif i > side_len and j > side_len:
       if i < side_len*2 and j < side_len*2:
