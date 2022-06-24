@@ -52,6 +52,9 @@ for i in range(n):
   for j in range(n):
     if noise[i, j] != 666:
         bg[i, j, :] = 0
+    elif i > side_len and j > side_len:
+      if i < side_len*2 and j < side_len*2:
+        bg[i, j, :] = 255
 
 #plt.imshow(noise_og, cmap='gray', vmin=n_min, vmax=n_max)
 spacer = np.ones((np.shape(noise)[0], 30, 3))
