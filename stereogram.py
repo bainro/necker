@@ -23,7 +23,7 @@ side_len = np.shape(noise)[0] // 3
 noise_og = np.copy(noise)
 for i in range(side_len):
   for j in range(side_len):
-    noise[side_len + i - 3, side_len + j] = noise[side_len + i, side_len + j]
+    noise[side_len + i - 3, side_len + j] = 40 # noise[side_len + i, side_len + j]
   noise[side_len + i - 2, side_len + side_len] = -40 #np.random.normal(loc=0, scale=1, size=(1))
   noise[side_len + i - 1, side_len + side_len] = -40 #np.random.normal(loc=0, scale=1, size=(1))
   noise[side_len + i - 0, side_len + side_len] = -40 #np.random.normal(loc=0, scale=1, size=(1))
