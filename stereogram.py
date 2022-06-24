@@ -1,15 +1,9 @@
 # playing with the necker cube illusion
 import os
-import colorsys
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 
-def spectrum(n : int):
-    hsv = [(h, 1, 1) for h in np.linspace(0, 240/360, n)]
-    rgb = [colorsys.hsv_to_rgb(*tup) for tup in hsv]
-    defloat = lambda x: tuple((int(i) for i in x))
-    return [defloat(x) for x in rgb]
   
 n = 100
 img_path = os.path.join(os.getcwd(), "bg.png")
@@ -54,7 +48,7 @@ noise[noise_tmp < n_avg] = n_min
 for i in range(n):
   for j in range(n):
     if noise[i, j] != 666:
-        bg_grad[i, j, :] = 0
+        bg[i, j, :] = 0
 
 #plt.imshow(noise_og, cmap='gray', vmin=n_min, vmax=n_max)
 spacer = np.ones((np.shape(noise)[0], 30, 3))
