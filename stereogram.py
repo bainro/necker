@@ -12,8 +12,8 @@ def spectrum(n : int):
     return [defloat(x) for x in rgb]
   
 n = 100
-bg = os.path.join(os.getcwd(), "bg.png")
-# img = cv2.imread(img_path)[...,::-1]/255.0
+img_path = os.path.join(os.getcwd(), "bg.png")
+bg = cv2.imread(img_path)[...,::-1]/255.0
 # noise =  np.random.normal(loc=0, scale=1, size=img.shape)
 noise =  np.random.normal(loc=0, scale=1, size=(n,n))
 # noisy_img = np.clip((img + noise*0.2),0,1)
