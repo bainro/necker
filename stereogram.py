@@ -11,6 +11,7 @@ noise =  np.random.normal(loc=0, scale=1, size=(100,100,1))
 # noisy_img = np.clip((img + noise*0.2),0,1)
 
 plt.figure(figsize=(20,20))
+noise = noise[:100,:100,0]
 n_min = noise.min()
 n_max = noise.max()
 n_avg = (n_max + n_min) / 2
