@@ -29,7 +29,7 @@ n4 = np.clip(np.where(img2 <= 1, (img2*(1 + noise*0.4)), (1-img2+1)*(1 + noise*0
 # norm noise for viz only
 noise2 = (noise - noise.min())/(noise.max()-noise.min())
 plt.figure(figsize=(20,20))
-plt.imshow(np.vstack((np.hstack((img, noise2)),
+plt.imshow(np.vstack((np.hstack((img, noise)),
                       np.hstack((noisy, noisy2)),
                       np.hstack((noisy2mul, noisy4mul)),
                       np.hstack((n2, n4)))))
