@@ -20,7 +20,7 @@ dx = abs(p1x - p2x)
 
 for i in range(dx + 15):
   color = round(255 - i / dx * (255-100))
-  color = min(color, 100)
+  color = max(color, 100)
   depth_map[175+i,10+i:10+i+23] = color
 
 # top line
