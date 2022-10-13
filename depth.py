@@ -28,9 +28,9 @@ depth_map[10:175,160:175] = 255
 # left side
 depth_map[10:25,10:175] = 255
 
+# was thinking of sniping & modding so color (ie depth) is dynamic
 # https://github.com/npinto/opencv/blob/master/modules/core/src/drawing.cpp#L237
 # https://github.com/npinto/opencv/blob/master/modules/core/src/drawing.cpp#L151
-
 
 depth_png = Image.fromarray(depth_map)
 depth_png = depth_png.convert("L")
