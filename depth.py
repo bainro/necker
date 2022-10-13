@@ -14,14 +14,14 @@ offset = 83
 p1x = 25
 p1y = 25
 p2x = 10+offset
-width = 15
+width = 12
 # draw a line of 1 px width between two points
 dx = abs(p1x - p2x)
 
 for i in range(dx + 15):
   color = round(255 - i / dx * (255-100))
   color = max(color, 100)
-  depth_map[175+i,10+i:10+i+23] = color
+  depth_map[175+i,10+i:10+i+21] = color
 
 # top line
 depth_map[10+offset:175+offset,10+offset:25+offset] = 100
