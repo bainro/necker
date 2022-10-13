@@ -24,7 +24,7 @@ for i in range(dx + 15):
   depth_map[175+i,10+i:10+i+21] = color
   
 for i in range(dx + 15):
-  if false:#15:
+  if False:#15:
     color = 255
   else:
     color = round(255 - i / dx * (255-100))
