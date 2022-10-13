@@ -33,7 +33,7 @@ p1x = 10
 p1y = 10
 p2x = 10+offset
 pxy = 10+offset
-width = 15
+width = 1#5
 # draw a line of 1 px width between two points
 dx = abs(p1x - p2x)
 
