@@ -28,7 +28,8 @@ for i in range(dx + 15):
     color = 255
   else:
     color = round(255 - i / dx * (255-100))
-  depth_map[10+i,155+i:155+i+21] = color
+    color = max(color, 100)
+  depth_map[175+i,10+i:10+i+21] = color
 
 # top line
 depth_map[10+offset:175+offset,10+offset:25+offset] = 100
