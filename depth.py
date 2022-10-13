@@ -13,5 +13,5 @@ depth_map[10:175,160:175] = 255
 # left side
 depth_map[10:25,10:175] = 255
 
-depth_png = PIL.Image.fromarray(depth_map)
+depth_png = Image.fromarray(depth_map)
 depth_png.save("cube.png", "PNG")
