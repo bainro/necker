@@ -3,7 +3,7 @@ import math
 import numpy as np
 from PIL import Image
 
-depth_map = np.zeros([350,350])
+depth_map = np.zeros([185,185])
 
 # back face first. Ie painter's algo for depth
 # top-left corner shold be around the middle of the first
