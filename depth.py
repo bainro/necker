@@ -46,6 +46,8 @@ for i in range(dx):
   color = round(255 - i / dx * (255-100))
   depth_map[p1x+i:p1x+i+width,p1y+i] = color
   depth_map[p1x+i,p1y+i:p1y+i+width] = color
+  depth_map[p1x+i+offset:p1x+i+width+offset,p1y+i+offset] = 150#color
+  depth_map[p1x+i+offset,p1y+i+offset:p1y+i+width+offset] = 180#color
 
 # at each new pixel, extend line horizontally
 
