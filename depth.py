@@ -39,7 +39,7 @@ width = 15
 dx = abs(p1x - p2x)
 
 for i in range(dx):
-  depth_map[p1x+i:p1x+i+width,p1y+i] = math.round(255 - i / dx * (255-100))
+  depth_map[p1x+i:p1x+i+width,p1y+i] = round(255 - i / dx * (255-100))
   depth_map[p1x+i,p1y+i:p1y+i+width] = 122
 
 # at each new pixel, extend line horizontally
