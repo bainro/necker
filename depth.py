@@ -33,7 +33,6 @@ depth_map[10:25,10:175] = 255
 p1x = 25
 p1y = 25
 p2x = 10+offset
-pxy = 10+offset
 width = 15
 # draw a line of 1 px width between two points
 dx = abs(p1x - p2x)
@@ -42,6 +41,8 @@ for i in range(dx):
   color = round(255 - i / dx * (255-100))
   depth_map[p1x+i:p1x+i+width,p1y+i] = color
   depth_map[p1x+i,p1y+i:p1y+i+width] = color
+  depth_map[p1x+i+160:p1x+i+width+160,p1y+i] = color
+  depth_map[p1x+i+160,p1y+i:p1y+i+width] = color
 
 # at each new pixel, extend line horizontally
 
