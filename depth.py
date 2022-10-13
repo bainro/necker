@@ -5,8 +5,10 @@ from PIL import Image
 
 depth_map = np.zeros([270,270])
 
-# painter's algo for depth
-
+# top-left corner shold be around the middle of the first
+# @TODO use python's builtin slice() to make fx of cube
+# face involving top-left corner, line width, and edge length.
+offset = 83
 
 # Note: hard coded for 45 degree line!
 p1x = 25
@@ -20,10 +22,6 @@ for i in range(dx + 15):
   color = round(255 - i / (dx + 15) * (255-100))
   depth_map[175+i,10+i:10+i+width] = color
 
-# top-left corner shold be around the middle of the first
-# @TODO use python's builtin slice() to make fx of cube
-# face involving top-left corner, line width, and edge length.
-offset = 83
 # top line
 depth_map[10+offset:175+offset,10+offset:25+offset] = 100
 # right side
