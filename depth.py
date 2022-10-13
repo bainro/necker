@@ -1,6 +1,6 @@
 # make int8 depth map & save as single channel
 import numpy as np
-import PIL
+from PIL import Image
 
 depth_map = np.zeros([350,350])
 # draw explicit front face
