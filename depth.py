@@ -29,10 +29,10 @@ depth_map[10:175,160:175] = 255
 depth_map[10:25,10:175] = 255
 
 # Note: hard coded for 45 degree line!
-p1x = 10
-p1y = 10
-p2x = 10+offset
-pxy = 10+offset
+p1x = 25
+p1y = 25
+p2x = 25+offset
+pxy = 25+offset
 width = 1#5
 # draw a line of 1 px width between two points
 dx = abs(p1x - p2x)
