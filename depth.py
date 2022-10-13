@@ -47,7 +47,7 @@ for i in range(dx):
   depth_map[p1x+i:p1x+i+width,p1y+i] = color
   depth_map[p1x+i,p1y+i:p1y+i+width] = color
   depth_map[p1x+i+150:p1x+i+width+150,p1y+i+150] = 150#color
-  depth_map[p1x+i+140,p1y+i+140:p1y+i+width+140] = 180#color
+  depth_map[p1x+i+150,p1y+i+150:p1y+i+width+150] = 180#color
 
 # at each new pixel, extend line horizontally
 
