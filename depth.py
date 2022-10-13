@@ -41,6 +41,8 @@ for i in range(dx):
   color = round(255 - i / dx * (255-100))
   depth_map[p1x+i:p1x+i+width,p1y+i] = color
   depth_map[p1x+i,p1y+i:p1y+i+width] = color
+
+for i in range(dx + 15)
   # depth_map[p1x+i+145:p1x+i+width+145,p1y+i] = 170#color
   depth_map[175+i,10+i:10+i+width] = 170#color
 
