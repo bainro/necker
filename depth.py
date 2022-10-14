@@ -10,8 +10,8 @@ depth_map = np.zeros([270,270])
 offset = 83
 
 backgn = 0
-low = 50
-high = 255
+low = 255 # 50
+high = 50 # 255
 
 # Note: hard coded for 45 degree line!
 p1x = 25
