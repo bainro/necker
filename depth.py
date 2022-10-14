@@ -22,12 +22,12 @@ width = 12
 dx = abs(p1x - p2x)
 
 for i in range(dx + 15):
-  color = round(255 - i / dx * (255-low))
+  color = round(high - i / dx * abs(high-low))
   color = max(color, low)
   depth_map[175+i,10+i:10+i+21] = color
   
 for i in range(dx + 15):
-  color = round(255 - i / dx * (255-50))
+  color = round(high - i / dx * abs(high-low))
   color = max(color, 50)
   depth_map[10+i,155+i:155+i+21] = color
 
@@ -42,16 +42,16 @@ depth_map[10+offset:25+offset,10+offset:175+offset] = low
 
 # draw explicit front face
 # top line
-depth_map[10:175,10:25] = 255
+depth_map[10:175,10:25] = high
 # right side
-depth_map[160:175,10:175] = 255
+depth_map[160:175,10:175] = high
 # bottom side
-depth_map[10:175,160:175] = 255
+depth_map[10:175,160:175] = high
 # left side
-depth_map[10:25,10:175] = 255
+depth_map[10:25,10:175] = high
 
 for i in range(dx):
-  color = round(255 - i / dx * (255-low))
+  color = round(high - i / dx * abs(high-low))
   depth_map[p1x+i:p1x+i+width,p1y+i] = color
   depth_map[p1x+i,p1y+i:p1y+i+width] = color
   depth_map[p1x+i+150-width-1:p1x+i+150,p1y+i+150] = color
