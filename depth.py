@@ -1,5 +1,4 @@
 # make int8 depth map & save as single channel
-import math
 import numpy as np
 from PIL import Image
 
